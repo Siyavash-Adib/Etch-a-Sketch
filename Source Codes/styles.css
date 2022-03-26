@@ -5,4 +5,32 @@
 }
 
 body {
+  display: grid;
+  justify-items: center;
+  grid-template-rows: auto 1fr;
+  width: 100vw;
+  height: 100vh;
+}
+
+.grid-container {
+  width: 90vw;
+  height: 95%;
+  display: grid;
+  box-shadow: 0 0 10px 0 black;
+}
+
+.grid-cell {
+  border: 1px dotted black;
+  transition:
+    background-color .1s ease-in-out;
+  user-select: none;
+}
+
+/* .grid-cell-highlight {
+  background-color: purple;
+} */
+
+.sketch-reset-button {
+  padding: 10px;
+  margin: 10px;
 }
