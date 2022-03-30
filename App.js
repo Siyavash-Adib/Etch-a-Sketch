@@ -27,20 +27,34 @@ function setupGrid(rows, columns) {
 
 function cellHoverEvent(e) {
   if (drawing) {
-    let cellColor = window.getComputedStyle(this).backgroundColor;
-    // console.log(cellColor);
+    // let cellColor = window.getComputedStyle(this).backgroundColor;
+    let cellColor = this.style.backgroundColor;
 
-    let colors = cellColor.match(/[0-9]+/ig).map(((num) => parseInt(num)));
-    if(colors.reduce((sum, element) => sum + element, 0) === 0) {
+    // let colors = cellColor.match(/[0-9]+/ig).map(((num) => parseInt(num)));
+    // if(colors.reduce((sum, element) => sum + element, 0) === 0) {
+    //   for(let i = 0; i < 3; i++) {
+    //     colors[i] = Math.floor(Math.random() * 256);
+    //   }
+    // } else {
+    //   for(let i = 0; i < 3; i++) {
+    //     colors[i] = Math.floor(colors[i] * .7);
+    //   }
+    // }
+    // console.log(colors);
+    // this.style.backgroundColor = `rgb(${colors[0]}, ${colors[1]}, ${colors[2]}`;
+
+    let colors = [0, 0, 0];
+    if(cellColor.length === 0) {
       for(let i = 0; i < 3; i++) {
         colors[i] = Math.floor(Math.random() * 256);
       }
     } else {
+      colors = cellColor.match(/[0-9]+/ig).map(((num) => parseInt(num)));
       for(let i = 0; i < 3; i++) {
         colors[i] = Math.floor(colors[i] * .7);
       }
     }
-    console.log(colors);
+    // console.log(colors);
     this.style.backgroundColor = `rgb(${colors[0]}, ${colors[1]}, ${colors[2]}`;
   }
 }
